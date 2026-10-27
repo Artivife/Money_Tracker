@@ -1,0 +1,74 @@
+<!Doctype html>
+<html>
+<head
+>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <tittle>Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Categories</h1>
+    <div id="nav"></div>
+    <div id="categories"></div>
+
+    <div class="card">
+        <b>New Category</b><br><br>
+        <input type="text" id="new-category" placeholder="Category Name">
+        <input type="text" id="icon" placeholder="Icon (emoji)">
+        <div class="small">pick a color that you like(skip = default)</div>
+        <input type="color" id="color" onchanged="picked = true">
+        <input type="number" id="budget" placeholder="Monthly Budget (100)">
+
+        <button class="sim" onclick="addCategory()">Add Category</button>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="detector.js"></script>
+    <script>
+        loadData();
+        showNav("categories.html");
+
+        var picked = false;
+
+        function showAll() {
+            var html = "";
+            for (var i = 0; i < categories.length; i++) {
+                var cat = categories[i];
+                var color = cat.color;
+                if (!color) { color = "#ffffff"; }
+                html += "<div class='card' style='background-color:" + color + "'>";
+                html += "<div class='icon'>" + cat.icon + "</div>";
+                html += "<b>" + cat.name + "</b><br>";
+                html += "<div class='small'>Budget: $" + money(cat.amount) + "</div>";
+                html += "<button class='sim' onclick='deleteCategory(" + i + ")'>Delete</button>";
+                html += "</div>";
+            }
+            document.getElementById("categories").innerHTML = html;
+        }
+
+        function addcategory() {
+            var name =document.getElementById("new-category").value;
+            if (name =="") {
+                alert("Please enter a category name");
+                return;
+            }
+            var color =defaultColor;
+            if (picked) {
+                color = document.getElementById("color").value;
+        }
+        
+            categorries.push({
+                name: name,
+                icon: document.getElementById("icon").value,
+                color: color,
+                budget: parseFloat(document.getElementById("budget").value)
+            });
+            saveData();
+            location.reload();
+            }
+
+            showAll();
+    </script>
+</body> 
+<html>

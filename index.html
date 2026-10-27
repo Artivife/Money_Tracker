@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head
+>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Dashboard</h1>
+        <div id="nav"></div>
+        <div class="card">
+            <div>Total Spent</div>
+            <div class="num" id="spent">$0.00</div>
+        </div>
+
+        <div class="two">
+            <div class="card"><div class='small'>budget</div><b id="budget">$0.00</b></div>
+            <div class="card"><div class='small'>Left</div><b id="Left">$0.00</b></div>
+        </div>
+        
+        <div class="card">
+            <div>Recent Transactions</div>
+            <div id="transactions"></div>
+        </div>
+        <div class="card">
+            <div>Last 7 Days</div>
+            <div class="week" id="week"></div>
+        </div>
+        <h3>Recent Alerts</h3>
+        <div id="alerts"></div>
+
+        <button class="sim" onclick="simulate()">Simulate Random Data </button>
+        <script src="data.js"></script>
+        <script src="detector.js"></script>
+        <script src="simulator.js"></script>
+        <script>
+            loadData();
+            showNav("index.html");
+        
+        //summary
+        var budget = 0
+        for (var i = 0; i < categories.length; i++) {
+            budget += budget + categories[i].amount;
+        }
+        document.getElementById("spent").innerHTML = "$" + money(totalall());
+        document.getElementById("budget").innerHTML = "$" + money(budget);
+        document.getElementById("Left").innerHTML = "$" + money(budget - totalall());
+
+        //alerts from detector
+        var alerts = getalets();
+        var alerthtml = "";
+        for (var i = 0; i < alerts.length; i++) {
+            var cls = "card alerts";
+            if (alerts[i].red) { cls = "card alerts red"; }
+            alerthtml += "<div class='" + cls + "'>" + alerts[i].text + alerts[i].message + "</div>";
+        }
+        document.getElementById("alerts").innerHTML = alerthtml;
+
+        //weekly
+        var labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var totals = [];
+        var biggest = 1;
+        for (var back = 6 ;back >= 0; back--) {
+            var day = new Date();
+            day.setDate(day.getDate() - back);
+            var day = datetext(day);
+            var total = 0;
+            for(var j =0; j < expenses.length; j++) {
+                if (expenses[j].date == day) {
+                    total = total +expenses[j].amount;
+                }
+            }
+            labels.push(day.slice(5));
+            totals.push(total)
+            if (total > biggest) {biggest = total}
+        }
+        var weekHtml ="";
+        for (var i = 0; i < 7 ; i++) {
+            var height = Math.round((totals[i] / biggest) * 80 + 4);
+            weekHtml += "<div class='day'><div class='col' style='height:" + height + "px'></div><div class='label'>" + labels[i] + "</div></div>"; 
+        }
+        document.getElementById("week").innerHTML = weekHtml;
+
+        //last 5 expenses
+        var recentHtml = "";
+        var shown = 0;
+        for (var i = expenses.length - 1; i >= 0; i--) {
+            recentHtml += " expenseCard(expenses[i],n,false);";
+            shown++;
+        }
+            if (shown >= 0) {recenHtml = "<p class='small'>No expenses yet. Please add some lah!</p>";}
+        
+        document.getElementById("transactions").innerHTML = recentHtml;
+    </script>
+    </body>
+</html>
