@@ -13,7 +13,7 @@ function loaddata() {
         categories = JSON.parse(category);
     }else {
         categories = [
-            { name: "Food", icon: "🍔", color: "#b83922", budget: 0 },
+            { name: "Food & Dining", icon: "🍔", color: "#b83922", budget: 0 },
             { name: "Transportation", icon: "🚗", color: "#4682B4", budget: 0 },
             { name: "Entertainment", icon: "🎬", color: "#32CD32", budget: 0 },
             { name: "Utilities", icon: "💡", color: "#FFD700", budget: 0 },

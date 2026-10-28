@@ -18,7 +18,7 @@
         <input type="text" id="icon" placeholder="Icon (emoji)">
         <div class="small">pick a color that you like(skip = default)</div>
         <input type="color" id="color" onchanged="picked = true">
-        <input type="number" id="budget" placeholder="Monthly Budget (100)">
+        <input type="number" id="budget" placeholder="Monthly Budget">
 
         <button class="sim" onclick="addCategory()">Add Category</button>
     </div>
@@ -29,33 +29,63 @@
         loadData();
         showNav("categories.html");
 
-        var picked = false;
+        var choose = " ";
 
-        function showAll() {
+       function showlist() {
             var html = "";
             for (var i = 0; i < categories.length; i++) {
                 var cat = categories[i];
                 var color = cat.color;
-                if (!color) { color = "#ffffff"; }
-                html += "<div class='card' style='background-color:" + color + "'>";
-                html += "<div class='icon'>" + cat.icon + "</div>";
-                html += "<b>" + cat.name + "</b><br>";
-                html += "<div class='small'>Budget: $" + money(cat.amount) + "</div>";
-                html += "<button class='sim' onclick='deleteCategory(" + i + ")'>Delete</button>";
-                html += "</div>";
+                if (color == undefined || color == "") {color = colorlist [i % colorlist.length];}
+                    html += "<div class = 'card row'>";
+                        html += "<div class = 'icon' style = 'background: " + color +"55 ' >" +c.icon + "</div>"
+                            html += "<div class = 'grow' ><b>" + c.name + "</b>";
+                                html += "<div class='small' >Budget" + money (c.budget) +"</div></div>";
+                                    html +=  "button class ='del' onclick = 'deleteCategory(" + i +")'>x</button>";
+                                        html += "</div>";
             }
             document.getElementById("categories").innerHTML = html;
+        }
+        var colorlist = ["#b83922", "#4682B4", "#32CD32", "#FFD700", "#e737e4", "#FF69B4", "#8A2BE2", "#FF4500", "#00CED1", "#FF6347"];
+        var chosen = "";
+
+
+        function showColors(){
+            var html = " ";
+            for (var i = 0; i < defaultColor.length;i++){
+                var cls = "dot";
+                if (defaultColor[i] == chosen) {cls = "dot on ";}
+                html += "<div class = '" +cls + "'style= 'background:" +defaultColor[i] + "'onclick='chooseColor(\""+ defaultColor[i] + "\")'></div>";
+            }
+            document.getElementById("colors").innerHTML = Html;
+
+        function showPreview () {
+            var box = document.getElementById("preview");
+            if (chosen == ""){
+                box.style.background = colorlist[categories.length % colorlist.length];
+                box.innerHTML = "Default color";
+            } else {
+                box.style.background = choosen;
+                box.innerHTML = "Pls Choose ur color leh";
+            }
+        }
+
+        }
+        function chooseColor(c){
+            if (chosen == colorlist[c]) {chosen = " "; } else { chosen = colorlist(c) ;}
+            showColors();
+            showPreview();
         }
 
         function addcategory() {
             var name =document.getElementById("new-category").value;
             if (name =="") {
-                alert("Please enter a category name");
+                alert("Boss category name pls");
                 return;
             }
-            var color =defaultColor;
-            if (picked) {
-                color = document.getElementById("color").value;
+            var color =chosen;
+            if (color == "") {
+                color = colorlist[categories.length % colorlist.length];
         }
         
             categorries.push({
