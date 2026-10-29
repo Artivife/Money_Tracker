@@ -1,0 +1,74 @@
+<file all the categories>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"
+    <meta name="viewport" content="width,initial-scale=1">
+    <title>Dashboard - Money Tracker 2.0 (New) </title>
+
+<!>
+<!>
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="Index 2.0.html" class="logo">💵 Money Tracker v2.0 </a>
+            <ul class="nav-links">
+                <li><a href="Index 2.0.html">Dashboard</a></li>
+                <li><a href="Add Expenses.html">Add Expenses</a></li>
+                <li><a href="Transaction.html">Transaction</a></li>
+                <li><a href="Budgets.html">Budget</a></li>
+                <li><a href="Insights.html">Chart/Report</a></li>
+                <li><a href="categories.html" class="active">Categories</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <main class="container main-content">
+        <header class="page-header">
+            <h1>Category</h1>
+            <p class="subtitle">Customize ur income & expenses category</p>
+        </header>
+
+        <section class="form-section card">
+            <h2>New Category</h2>
+            <form id="category-form" class="card-form">
+                <div class="form-gourp">
+                    <label for="category-name">Category Name</label>
+                    <input type="text" id="category-name" name="name" placeholder="Food , Entertaiment" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category-type">Category Type</label>
+                    <select id="category-type" name="type" required>
+                        <option value="expenses">Expenses</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="categories-list-section card">
+            <h2>Currently categories</h2>
+            <div id="categories-container" class="table-responsive">
+                <ul  id="categories-list" class="styled-list">
+
+                </ul>
+            </div>
+        </section>
+     </main>
+
+<!>
+<!>
+
+</html>
+</body>

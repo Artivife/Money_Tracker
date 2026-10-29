@@ -1,0 +1,81 @@
+<file insights>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"
+    <meta name="viewport" content="width,initial-scale=1">
+    <title>Dashboard - Money Tracker 2.0 (New) </title>
+
+<!>
+<!>
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="Index 2.0.html" class="logo">💵 Money Tracker v2.0 </a>
+            <ul class="nav-links">
+                <li><a href="Index 2.0.html">Dashboard</a></li>
+                <li><a href="Add Expenses.html">Add Expenses</a></li>
+                <li><a href="Transaction.html">Transaction</a></li>
+                <li><a href="Budgets.html">Budget</a></li>
+                <li><a href="Insights.html" class="active">Chart/Report</a></li>
+                <li><a href="categories.html">Categories</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div id="nav"></div>
+    <h1>Insights</h1>
+    <div class="tabs" id="tabs">
+        <button onclick="tab(0)">Visual Charts</button>
+        <button onclick="tab(1)">Smart Saving Plan</button>
+        <button onclick="tab(2)">Monthly Story Infographic</button>
+        <button onclick="tab(3)">Saving Rate</button>
+</div>
+
+    <div id="t0">
+        <div id="alerts"></div>
+            <select id="range" onchange="drawCharts()">
+                <option value="7">Weekly Report</option>
+                <option value="30">Monthly Report</option>
+    </select>
+    <div class="two">
+        <div class="card"><div class="small">Total Spent</div><b id="totTxt">$0.00</b></div>
+        <div class="card"><div class="small">Daily Avg</div><b id="avgTxt">$0.00</b></div>
+        <div class="card"><div class="small">Perior period</div><b id="chgTxt">0%</b></div>
+
+    </div>
+    <div class="card">
+        <b>Category Breakdown (Pie/Donut)</b>
+            <canvas id="pieCv"></canvas>
+        <div class="small" id="c1">Tap pie slice</div>
+</div>
+    <div class="card">
+        <b>Category Totals</b>
+            <canvas id="barCv"></canvas>
+        <div class="small" id="c2">Tap The Bar</div>
+</div>
+    <div class="card"></div>
+        <b>Daily Spending Report</b>
+            <canvas id="reportCv"></canvas>
+        <div class="small" id="c3" > Tap Report Point</div>
+</div>
+    <div id="t1" hidden>
+        <div class="card"
+            <p id="tale"></p>
+                <canvas id="storyCv" class="story"></canvas><br>
+            <button onclick="exportPng(document.getElementById('storyCv'))">Export High-Res PNG Infographic</button>
+</div>
+</div>
+
+<!>
+<!>
+
+</body>
+</html>

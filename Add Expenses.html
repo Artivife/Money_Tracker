@@ -1,0 +1,88 @@
+<add the all item>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"
+    <meta name="viewport" content="width,initial-scale=1">
+    <title>Dashboard - Money Tracker 2.0 (New) </title>
+<!>
+<!>
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="Index 2.0.html" class="logo">💵 Money Tracker v2.0 </a>
+            <ul class="nav-links">
+                <li><a href="Index 2.0.html">Dashboard</a></li>
+                <li><a href="Add Expenses.html" class="active">Add Expenses</a></li>
+                <li><a href="Transaction.html">Transaction</a></li>
+                <li><a href="Budgets.html">Budget</a></li>
+                <li><a href="Insights.html">Chart/Report</a></li>
+                <li><a href="categories.html">Categories</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main class="container main-content">
+        <header class="page-header">
+            <h1>Add Expenses</h1>
+            <p class="subtitle">Record Every Transaction</p>
+        </header>
+
+        <section class="form-section">
+            <form id="add-transaction-form" class="card-form">
+                <div class="form-group">
+                    <label for="transaction-type">Transaction Type</label>
+                    <select id="transaction-type" name="type" required>
+                        <option value="expenses">Expenses</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transaction-amount">Amount</label>
+                    <input type="number" id="transaction-amount" name="amount" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <div class="form-gourp">
+                    <label for="transaction-category">Category</label>
+                    <select id="transaction-category" name="category" required>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transaction-date">Date</label>
+                    <input type="date" id="transaction-date" name="date" required>
+                 </div>
+
+                 <div class="form-group">
+                    <label for="transaction-time">Time</label>
+                    <input type="time" id="transaction-time" name="time" required>
+                 </div>
+
+                 <div class="form-group">
+                    <label for="transaction-desc">Description</label>
+                    <input type="text" id="transaction-desc" name="description" placeholder="Grab , Coffee , Pizza Hut">
+                 </div>
+
+                 <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                 </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+<!>
+<!>
+
+</html>
+</body>

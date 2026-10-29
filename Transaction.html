@@ -1,0 +1,74 @@
+<file expenses>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width,initial-scale=1">
+    <tittle>Expenses - Money Tracker 2.0 (New)</tittle>
+
+<!>
+<!>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="Index 2.0.html" class="logo">💵 Money Tracker v2.0 </a>
+            <ul class="nav-links">
+                <li><a href="Index 2.0.html">Dashboard</a></li>
+                <li><a href="Add Expenses.html">Add Expenses</a></li>
+                <li><a href="Transaction.html" class="active">Tansaction</a></li>
+                <li><a href="Budgets.html">Budget</a></li>
+                <li><a href="Insights.html">Chart/Report</a></li>
+                <li><a href="categories.html">Categories</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <header class="page-header">
+            <h1>Transaction Detial</h1>
+            <p class="subtitle">View,Filter,Search,Manage all expeses record</p>
+        </header>
+
+        <section class="filter-section card">
+            <div class="filter-controls">
+                <input type="text" id="search-input" placeholder="search or category">
+                <select id="filter-type" class="form-control">
+                    <option value="">All Type</option>
+                    <option value="expense">Expenses</option>
+                    <option value="income">Income</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="transactions-list-section">
+            <div id="transaction-table-container" class="table-reponsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Remark/Notes</th>
+                            <th>Actions</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="expenses-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+
+
+<!>
+<!>
+
+</body>
+</html>

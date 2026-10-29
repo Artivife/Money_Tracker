@@ -1,0 +1,68 @@
+<File Budget>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"
+    <meta name="viewport" content="width,initial-scale=1">
+    <title>Dashboard - Money Tracker 2.0 (New) </title>
+
+<!>
+<!>
+
+</head>
+<body>
+
+    <nav class="navvar">
+        <div class="container">
+            <a href="Index 2.0.html" class="logo">💵 Money Tracker v2.0 </a>
+            <ul class="nav-links">
+                <li><a href="Index 2.0.html">Dashboard</a></li>
+                <li><a href="Add Expenses.html">Add Expenses</a></li>
+                <li><a href="Transaction.html">Transaction</a></li>
+                <li><a href="Budgets.html" class="active">Budget</a></li>
+                <li><a href="Insights.html" >Chart/Report</a></li>
+                <li><a href="categories.html">Categories</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main class="container main-content">
+        <header class="page-header">
+            <h1>Budget</h1>
+            <p class="subtitle">Ur Budget</p>
+        </header>
+
+        <section class="form-section card">
+            <h2>Type of Budget</h2>
+            <form id="budget-form" class="card-form">
+                <div class="form-group">
+                    <label for="budget-category">category</label>
+                    <select id="budget-category" name="category" required>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget-limit">Monthly Budget</label>
+                    <input type="number" id="number" id="budget-limit" name="limit" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn primary">Save</button>
+                </div>
+            </form>
+        </section>
+        
+        <section class="budget-progress-section">
+            <h2>Current Budget Status</h2>
+            <div id="budget-list-container" class="cards-grid">
+            </div>
+        </section>
+    </main>
+
+<!>
+<!>
+
+</body>
+</html>
